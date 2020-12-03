@@ -1,0 +1,5 @@
+SELECT ponds.ID AS 'POND_ID', COUNT(ducks.ID) AS 'HAPPY_ducks' FROM ponds
+FULL OUTER JOIN ducks ON ducks.POND_ID = ponds.ID
+FULL OUTER JOIN species ON ducks.species_ID = species.ID
+WHERE (ponds.TEMPERATURE >= species.TEMP_LIMIT AND species.TEMP_PREFERENCES = '+') OR (ponds.TEMPERATURE <= species.TEMP_LIMIT AND species.TEMP_PREFERENCES = '-')
+GROUP BY ponds.ID;
