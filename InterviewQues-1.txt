@@ -1,0 +1,46 @@
+package main.java;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class InterviewProgram {
+
+	
+	public static void main (String args[]) {
+		
+		int accNum=12343;
+		
+		if (accNum > 0) {
+		String input = Integer.toString(accNum);
+		System.out.println("input :: "+input);
+		String finalAns = "";
+		char[] arr = input.toCharArray();
+		
+		for (int i = 0; i< arr.length; i ++) {
+			
+			char a = arr[i];
+			if (arr.length % 2 != 0 && finalAns.length()==arr.length-1) {
+				finalAns += new String(new char[]{a});
+				break;
+			}
+			
+			else if (arr.length % 2 == 0 && finalAns.length()==arr.length) {
+				break;
+			}
+			
+			for (int j=arr.length-1;j>0;j--) {
+				char b = arr[arr.length-1-i];
+				finalAns += new String(new char[]{a,b});
+				
+				break;
+			}
+			
+			
+		}
+		System.out.println("Output :: " + finalAns);
+		}
+		else {
+			System.out.println("Please input a positive number! ");
+		}
+	}
+}
